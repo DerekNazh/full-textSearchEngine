@@ -36,9 +36,10 @@ build/
 
 ### Mac OS ###
 .DS_Store
-### test doc ###
+### test doc ###n
 *test*.java
 ### calss ###
 *.class
 target/
 test/
+*.error
