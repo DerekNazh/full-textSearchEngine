@@ -13,6 +13,7 @@
         <module>Flink</module>
         <module>Hbase</module>
         <module>Es</module>
+        <module>dataImport-api</module>
     </modules>
 
     <properties>
@@ -82,8 +83,32 @@
                 <artifactId>flink-connector-elasticsearch7_${scala_version}</artifactId>
                 <version>${flink_version}</version>
             </dependency>
-
-
+            <!-- httpClient spider dependency-->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.2</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-log4j12</artifactId>
+                <version>1.7.25</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.10.2</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.6</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-lang</groupId>
+                <artifactId>commons-lang</artifactId>
+                <version>2.6</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
