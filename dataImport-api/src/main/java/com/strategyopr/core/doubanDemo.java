@@ -1,4 +1,4 @@
-package core;
+package com.strategyopr.core;
 
 import com.strategyopr.Bean.BookBean;
 import com.strategyopr.util.FileUtils;
