@@ -33,8 +33,8 @@ public class HtmlUtils {
         try {
             res = cli.execute(get);
         HttpEntity entity = res.getEntity();
-            res.close();
           String  content = EntityUtils.toString(entity, "UTF8");
+            res.close();
           return content;
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,7 +20,7 @@ public class FileUtils {
         }
         BufferedWriter red = null;
         try {
-            red = new BufferedWriter(new FileWriter(path));
+            red = new BufferedWriter(new FileWriter(path,true));
             red.write(content.toCharArray());
             red.close();
         } catch (IOException e) {
