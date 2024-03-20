@@ -1,3 +1,0 @@
-Exception in thread "main" java.lang.IllegalArgumentException:
-The implementation of the provided ElasticsearchSinkFunction is not serializable.
-    The object probably contains or references non-serializable fields.
