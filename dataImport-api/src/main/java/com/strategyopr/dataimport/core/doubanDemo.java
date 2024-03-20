@@ -14,7 +14,6 @@ public class doubanDemo {
     public static void main(String[] args) {
         int bookid = 0;
         String url = null;
-        ArrayList Data = null;
 
         for (int i = 3660000; i < 4000000; i++) {
             try { url = "https://book.douban.com/subject/" + i;
