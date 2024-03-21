@@ -20,6 +20,7 @@ public class esDemo {
         for (Object o : array) {
             System.out.println(o);
         }
+
         EsConnector.close();
 
 
