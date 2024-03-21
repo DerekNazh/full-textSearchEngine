@@ -3,9 +3,9 @@ package com.strategyopr.flink.scala.controller
 
 
 import com.strategyopr.flink.bean.{BookBean, EsBookBean}
+import com.strategyopr.flink.conn.FlinkConnector
 import com.strategyopr.flink.scala.commons.easySink.{EsSink, HbaseSink}
 import com.strategyopr.util.PropertiesLoader
-import conn.FlinkConnector
 import org.apache.flink.api.common.restartstrategy.RestartStrategies
 import org.apache.flink.api.common.time.Time
 import org.apache.flink.streaming.api.scala.createTypeInformation

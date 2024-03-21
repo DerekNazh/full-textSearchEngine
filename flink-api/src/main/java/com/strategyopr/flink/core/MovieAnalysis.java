@@ -1,6 +1,6 @@
-package core;
+package com.strategyopr.flink.core;
 
-import conn.FlinkConnector;
+import com.strategyopr.flink.conn.FlinkConnector;
 import org.apache.flink.streaming.api.scala.DataStream;
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment;
 

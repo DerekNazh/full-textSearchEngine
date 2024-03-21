@@ -1,4 +1,4 @@
-package conn;
+package com.strategyopr.flink.conn;
 
 import org.apache.flink.streaming.api.scala.StreamExecutionEnvironment;
 
