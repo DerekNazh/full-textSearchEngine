@@ -3,6 +3,6 @@
 NOTICE
 ---
 >Its best not to clone and use Becease havent finished!It will be completed in mid-Apri.  
->is a gressive try for me, a code newbie.
+>is a gressive try to me, a code newbie.
 
   
