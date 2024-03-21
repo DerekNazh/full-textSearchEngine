@@ -1,6 +1,7 @@
 package com.strategyopr.flink.scala.commons.easySink
 
-import com.strategyopr.flink.bean.BookBean
+import com.strategyopr.es.commons.EsDDLUtil
+import com.strategyopr.flink.bean.{BookBean, EsBookBean}
 import com.strategyopr.es.conn.EsConnector
 import org.apache.flink.configuration.Configuration
 import org.apache.flink.streaming.api.functions.sink.{RichSinkFunction, SinkFunction}
@@ -12,22 +13,17 @@ import org.elasticsearch.common.xcontent.XContentType
 
 
 
-class EsSink extends RichSinkFunction[BookBean]{
+class EsSink extends RichSinkFunction[EsBookBean]{
   var cli:RestHighLevelClient = null
   override def open(parameters: Configuration): Unit = {
     cli = EsConnector.getConnection("localhost",9200)
   }
 
 
-  override def invoke(value: BookBean, context: SinkFunction.Context): Unit = {
+  override def invoke(value: EsBookBean, context: SinkFunction.Context): Unit = {
         //获取请求
-       val indexReq = new IndexRequest("book")
-       indexReq.id(value.getID)
-       val mapper = new ObjectMapper()
-       val bookBean = mapper.writeValueAsString(value)
-       indexReq.source(bookBean,XContentType.JSON)
-    val res = cli.index(indexReq, RequestOptions.DEFAULT)
-    print(res)
+        val response = EsDDLUtil.insetRow(cli, "book", value.getID, value)
+       println(response)
   }
   override def close(): Unit =  EsConnector.close()
 

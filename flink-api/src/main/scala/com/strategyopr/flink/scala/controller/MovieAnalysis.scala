@@ -2,7 +2,7 @@ package com.strategyopr.flink.scala.controller
 
 
 
-import com.strategyopr.flink.bean.BookBean
+import com.strategyopr.flink.bean.{BookBean, EsBookBean}
 import com.strategyopr.flink.scala.commons.easySink.{EsSink, HbaseSink}
 import com.strategyopr.util.PropertiesLoader
 import conn.FlinkConnector
@@ -41,17 +41,12 @@ object MovieAnalysis {
      * 3.hive              存储全部数据，用来离线分析
      */
     val beands = mapds.map(element => {
-    val bean =   new BookBean(
+    val bean =  new EsBookBean(
         element(0),
         element(1),
         element(2),
-        element(3),
-        element(4),
         element(5),
-        element(6),
-        element(7),
-        element(8),
-        element(9),
+        element(8)
       )
       bean
     })
