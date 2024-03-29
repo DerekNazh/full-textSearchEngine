@@ -8,11 +8,12 @@ import org.apache.hadoop.hbase.client.ConnectionFactory;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HbaseConnector {
    private static Connection conn =null;
     private HbaseConnector(){}
-    public static Connection getConnection(ArrayList<StringTuple2> tuples) throws IOException {
+    public static Connection getConnection(List<StringTuple2> tuples) throws IOException {
         if(conn == null){
             Configuration conf = HBaseConfiguration.create();
             for (int i = 0; i < tuples.size(); i++) {

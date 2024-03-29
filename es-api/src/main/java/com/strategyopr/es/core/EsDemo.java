@@ -1,7 +1,6 @@
 package com.strategyopr.es.core;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.strategyopr.es.commons.EsDDLUtil;
 import com.strategyopr.es.conn.EsConnector;
 import org.elasticsearch.client.RestHighLevelClient;
@@ -11,21 +10,25 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.List;
 
-public class esDemo {
-    public static void main(String[] args) throws IOException {
+public class EsDemo {
+
+    public static String[] getIdsFromEs() throws IOException {
         RestHighLevelClient conn = EsConnector.getConnection();
         HashSet<Integer> idsFromEs = getIdsFromEs(conn, "book", "米");
-        Object[] array = idsFromEs.toArray();
-        System.out.println(array.length);
-        for (Object o : array) {
-            System.out.println(o);
-        }
-
+        String[] array = (String[]) idsFromEs.toArray();
         EsConnector.close();
-
+        return array;
 
     }
 
+    /**
+     * 指定索引库，关键词所搜所有属性中的相关数据的ids
+     * @param conn  链接对象
+     * @param indices  索引库
+     * @param searchStr  搜索关键词
+     * @return
+     * @throws IOException
+     */
     public static HashSet<Integer> getIdsFromEs(RestHighLevelClient conn, String indices, String searchStr) throws IOException {
         HashSet<Integer> set = new HashSet<>();
         List ints1 = EsDDLUtil.query(conn, indices, "comment", "米");
