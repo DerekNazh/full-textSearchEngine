@@ -1,8 +1,8 @@
 package com.strategyopr.dataimport.core;
 
 import com.strategyopr.dataimport.Bean.BookBean;
+import com.strategyopr.dataimport.service.KafkaService;
 import com.strategyopr.dataimport.util.HtmlUtils;
-import com.strategyopr.dataimport.util.FileUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,8 +10,11 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 
-public class doubanDemo {
+public class DoubanDemo {
     public static void main(String[] args) {
+
+    }
+    public static void work() {
         int bookid = 0;
         String url = null;
 
@@ -19,12 +22,12 @@ public class doubanDemo {
             try { url = "https://book.douban.com/subject/" + i;
                 bookid = getBookId(url);
                 BookBean bookBean = new BookBean(bookid, getBookName(url),
-                    getInfo(url), getScore(url), getDescription(url),
-                    getComments(url));
-                 FileUtils.downToFile(bookBean.toString()+"\r\n","E:\\work\\work\\test\\data\\bookdata.csv");
+                        getInfo(url), getScore(url), getDescription(url),
+                        getComments(url));
+                    new KafkaService().deliverRecord(bookBean);
                 System.out.println("豆瓣页面bookid:"+bookid+"，已爬取");
-        }catch (Exception e){
-
+            }catch (Exception e){
+                    e.printStackTrace();
             }
         }
     }

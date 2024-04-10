@@ -12,10 +12,10 @@ import java.util.List;
 
 public class EsDemo {
 
-    public static String[] getIdsFromEs() throws IOException {
+    public static int[] getIdsFromEs() throws IOException {
         RestHighLevelClient conn = EsConnector.getConnection();
         HashSet<Integer> idsFromEs = getIdsFromEs(conn, "book", "米");
-        String[] array = (String[]) idsFromEs.toArray();
+        int[] array = idsFromEs.stream().mapToInt(x -> x).toArray();
         EsConnector.close();
         return array;
 

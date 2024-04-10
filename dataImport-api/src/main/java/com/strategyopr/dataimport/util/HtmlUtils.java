@@ -1,5 +1,6 @@
 package com.strategyopr.dataimport.util;
 
+import com.strategyopr.dataimport.conn.HttpClientsConnector;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -25,9 +26,8 @@ public class HtmlUtils {
      * @return
      */
     public static String getHtmlFromURL(String url){
-
-        CloseableHttpClient cli = HttpClients.custom().setUserAgent(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36").build();
+        //从连接池中获取连接
+        CloseableHttpClient cli = new HttpClientsConnector().getCli();
         HttpGet get = new HttpGet(url);
         CloseableHttpResponse res = null;
         try {

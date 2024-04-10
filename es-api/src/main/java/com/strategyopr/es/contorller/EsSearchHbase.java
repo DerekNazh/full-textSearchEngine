@@ -1,22 +1,19 @@
 package com.strategyopr.es.contorller;
 
 import com.strategyopr.es.conn.EsConnector;
-import org.apache.lucene.util.QueryBuilder;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.Requests;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.recycler.Recycler;
 import org.elasticsearch.index.query.FuzzyQueryBuilder;
-import org.elasticsearch.index.query.MatchQueryBuilder;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
 import java.io.IOException;
 
-public class esSearchHbase {
+public class EsSearchHbase {
     public static void main(String[] args) {
 
     }
